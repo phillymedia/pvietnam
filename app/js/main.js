@@ -1,6 +1,12 @@
 require("./parallax.js");
+require("./featherlight.js");
+
 
 $(document).ready(function(){
+
+
+
+
 
   var targetOffset = $("#map-stack-1").offset().top,
       targetOffset2 = $('#vietnam-text-overlay').offset().top + 50;
