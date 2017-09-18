@@ -2,10 +2,8 @@ require("./parallax.js");
 require("./featherlight.js");
 
 
+
 $(document).ready(function(){
-
-
-
 
 
   var targetOffset = $("#map-stack-1").offset().top,
@@ -23,7 +21,6 @@ $(document).ready(function(){
       var dif2 = (($w.scrollTop() - 50) - targetOffset + $(window).height());
       if ($w.scrollTop() - 50 > (targetOffset2 - $(window).height())) {
         $("#vietnam-text-overlay").css("opacity", (''+ dif2*0.0015 + ''));
-        cosole.log(targetOffset2);
       } else {
         $("#vietnam-text-overlay").css("opacity", ('0'));
       }
