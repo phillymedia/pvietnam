@@ -1,5 +1,22 @@
 @import "philly-styles/values";
 
+.btn, .btn:visited {
+  color:white;
+}
+
+html {
+    height: 100vh; /* set viewport constraint */
+    min-height: 100%; /* enforce height */
+}
+
+.col {
+  overflow:visible;
+  width: 100%;
+  @include tablet {
+  overflow: hidden;
+}
+}
+
 .headerIntro {
   position: relative;
   width: auto;
@@ -9,21 +26,32 @@
 #backgroundImage-1 {
   background-image: url("http://media.philly.com/images/RS_2400x1600_20170908_PVIETNAM24_a.jpg");
   background-position: left 50% top 79px;
-  @include tablet {
+  -webkit-background-size: cover; /* safari may need this */
+  background-size: cover;
+  @include BS-medium {
     background-position: left 50% top 49px;
     background-size: cover;
+    background-attachment: scroll;
   }
-  @include mobile {
+  @include tablet {
     background-position: left 50% top 49px;
     background-size: contain;
   }
 }
 
 #backgroundImage-2 {
-  background-image: url("http://media.philly.com/images/RS_1200x800_20170913_Vietnam16.JPG");
+  background-image: url("http://media.philly.com/images/RS_2400x1600_20170918_VIETNAM_3.jpg");
   background-position: center;
-  @include tablet {
+  @include BS-medium {
+    background-position: left 50% top 0px;
+    background-size: contain;
     background-size: cover;
+    background-attachment: scroll;
+  }
+  @include tablet {
+    background-size: contain;
+    background-size: cover;
+    background-attachment: scroll;
   }
 }
 
@@ -82,7 +110,7 @@
   line-height: normal;
   text-shadow: 0 0 10px #000;
   z-index: 2;
-  @include mobile {
+  @include tablet {
     position: relative;
     top: auto;
     bottom: 20%;
@@ -103,7 +131,7 @@
       letter-spacing: -3px;
       font-size: 80px;
       margin-bottom: 0;
-      @include mobile {
+      @include tablet {
           padding: 5px 0 ;
           font-weight: 800;
           letter-spacing: normal;
@@ -111,18 +139,16 @@
           line-height: 1.05;
           color:#000;
       }
-      @include BS-medium {
-          font-size: 90px;
-      };
   }
 
   .suboverlay {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
+    width: 70%;
     letter-spacing: normal;
     font-family: $philly-sans;
     color: white;
-    @include mobile {
+    @include tablet {
       font-size: 22px;
       font-family: $philly-serif;
       color: #000;
@@ -141,9 +167,12 @@
       a {
           color: #eee;
       }
-      @include mobile {
+      @include tablet {
           font-size: 16px;
           color: #606060;
+          a {
+              color: #004488;
+          }
       };
   }
 }
@@ -159,7 +188,7 @@
   overflow-y: auto;
   line-height: 2.25em;
   clear: both;
-  @include mobile {
+  @include tablet {
     padding-top: 5px;
     color: black;
     color: #777;
@@ -226,30 +255,47 @@
 }
 
 .containerQuote {
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  margin-left: -11%;
-  @media (max-width: 992px) {
-    margin-left: 0;
-  }
-  @media (min-width: 992px) {
-    max-width: 46%;
-  }
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    margin-left: -11%;
+    @media (max-width: 992px) {
+        margin-left: 0;
+    }
+    @media (min-width: 992px) {
+        max-width: 46%;
+    }
+}
+
+
+.containerInsertLeft {
+    clear: left;
+    float: left;
+    margin: 10px 25px 10px 0px;
+}
+
+.containerQuote {
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    margin-left: -11%;
+    @include tablet {
+      margin-left: 0% !important;
+    }
 }
 
 .containerQuoteText {
-  font-family: $philly-serif;
-  font-weight: 400;
-  line-height: 1.25em;
-  font-size: 38px;
-  text-align: left !important;
+    font-family: $philly-serif;
+    font-weight: 400;
+    line-height: 1.25em;
+    font-size: 38px;
+    text-align: left !important;
 }
 
 .containerQuoteSource {
-  color: #888;
-  font-family: $philly-sans;
-  font-size: 16px;
+    color: #888;
+    font-family: $philly-sans;
+    font-size: 16px;
 }
+
 
 .BackgroundImageCaption {
   color: #888;
@@ -309,7 +355,7 @@
 
 .containerPhotoCaption {
   margin-top: 0.5em;
-  padding: 0 12px;
+  padding: 0 12px 10px;
 }
 // ----------- ADS CSS --------------------
 
